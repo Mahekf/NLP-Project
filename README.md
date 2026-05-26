@@ -1,27 +1,52 @@
 
-# Projet TAL - Saisie Prédictive
+                                      
+                                                PROJET TAL : Saisie Prédictive  
+Niveau : L3 Informatique et Linguistique (TAL)
+Faculté : Université Paris Cité 
+Auteur : [Ton Nom / Prénom]
 
-"Une courte introduction expliquant qu'il s'agit d'une application de complétion (via un arbre Trie) et de prédiction (via des modèles N-Grammes avec Backoff) entraînée sur le corpus 88milSMS"
+Ce projet implémente un système complet d'aide à la saisie combinant un 
+arbre de préfixes (Trie) pour la complétion, un modèle statistique 
+N-gramme avec Backoff pour la prédiction contextuelle, et la distance 
+de Levenshtein pour la correction d'erreurs. Il intègre un module 
+d'accessibilité déporté sur iPad (clavier virtuel + trackpad UDP).
 
+------------------------------------------------------------------------
+1. PRÉREQUIS ET INSTALLATION
+------------------------------------------------------------------------
+Avant de lancer l'application, assurez-vous d'installer les bibliothèques 
+Python requises à l'aide de la commande suivante :
 
+pip install customtkinter pandas openpyxl scikit-learn 
 
+Note : Le fichier de données '88milSMS.ods' doit impérativement se trouver 
+dans le même répertoire que les scripts pour l'extraction du corpus.
 
-## Fonctionnalités principales
+------------------------------------------------------------------------
+2. MODES D'EXÉCUTION (Aide en ligne intégrée)
+------------------------------------------------------------------------
+Le script principal gère les arguments en ligne de commande. Pour afficher 
+l'aide depuis votre terminal, exécutez :
+python3 Interface2.py --help
 
-* Complétion de mots en cours de frappe avec calcul de probabilités.
+Trois modes opératoires distincts sont disponibles :
 
-    Prédiction du mot suivant avec mécanisme de repli (Backoff).
+A) Mode Interface Graphique (GUI) :
+   Lance l'IHM customtkinter de saisie prédictive sur l'ordinateur.
+   Commande : python3 Interface2.py --mode gui
+   (ou simplement : python3 Interface2.py)
 
-    Recommandation d'émojis contextuels et par défaut.
+B) Mode Évaluation (Calcul de l'Accuracy) :
+   Exécute l'évaluation automatique sur les 10% du corpus de test isolés
+   et calcule l'Accuracy Top-1 et Top-3 sur 77 289 mots.
+   Commande : python3 Interface2.py --mode test
 
-    Apprentissage en temps réel au clavier.
-## Prérequis et Installation
+C) Mode Accessibilité Déportée (SERVER / CLIENT) :
+   Permet de lier un iPad et un MacBook sur le même réseau Wi-Fi local.
+   1. Sur l'ordinateur (MacBook), lancez le serveur d'écoute :
+      python3 server_mac.py
+   2. Sur la tablette (iPad, via Pythonista), lancez le client tactile :
+      python3 client_client.py
+   3. Entrez l'IP du Mac sur l'iPad pour activer le clavier et le trackpad. (lancez l'expérience !)
 
-es versions de Python requises et la commande magique pour installer le tout (ex : pip install customtkinter pandas odfpy).
-
-## Architecture du code
-
-Un petit schéma ou une liste expliquant à quoi sert chaque fichier (completion_freq_user.py pour le Trie, ngram_predictor.py, etc.).
-## Comment lancer l'application ?
-
-La commande exacte pour exécuter l'interface graphique (ex : python main_gui.py).
+========================================================================
