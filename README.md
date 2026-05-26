@@ -2,7 +2,7 @@
 
 * **Niveau :** L3 Informatique et Linguistique (TAL)
 * **Faculté :** Université Paris Cité
-* **Auteur :** [Ton Nom / Prénom]
+* **Auteur :** Abo Izhar Mahek Fatma & Chaer Rime 
 
 Ce projet implémente un système complet d'aide à la saisie combinant un arbre de préfixes (Trie) pour la complétion, un modèle statistique N-gramme avec Backoff pour la prédiction contextuelle, et la distance de Levenshtein pour la correction d'erreurs. Il intègre un module d'accessibilité déporté sur iPad (clavier virtuel + trackpad UDP).
 
